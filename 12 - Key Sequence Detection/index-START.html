@@ -4,9 +4,29 @@
     <meta charset="UTF-8" />
     <title>Key Detection</title>
     <script type="text/javascript" src="./cornify.js"></script>
-    <link rel="icon" href="https://fav.farm/🔥" />
+    <link rel="icon" href="https://fav.farm/🦄" />
   </head>
   <body>
-    <script></script>
+    <script>
+      // create an array of keys pressed and a code
+      const pressed = [];
+      const secretCode = "florida";
+      // listen fot the keys pressed
+      window.addEventListener("keyup", (e) => {
+        console.log(e.key);
+        pressed.push(e.key);
+        // limit the number of keys stored in array to length of secret key
+        pressed.splice(
+          -secretCode.length - 1,
+          pressed.length - secretCode.length
+        );
+        // if the keys in the array join to make 'florida' run function
+        if (pressed.join("").includes(secretCode)) {
+          console.log("ding ding");
+          cornify_add();
+        }
+        console.log(pressed);
+      });
+    </script>
   </body>
 </html>
